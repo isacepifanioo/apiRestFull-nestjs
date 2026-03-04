@@ -4,7 +4,10 @@ WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm install --omit=dev
+RUN npm install -g npm@11.11.0 \
+    && npm install --omit=dev
+
+RUN npm install -g @nestjs/cli
 
 COPY . .
 
