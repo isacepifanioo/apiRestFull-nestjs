@@ -1,0 +1,106 @@
+@url = http://localhost:3000
+
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsIm5hbWUiOiJhZG1pbiIsImlhdCI6MTc3MjU2MDUwMiwiZXhwIjoxNzcyNTY0MTAyLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjMwMDAiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjMwMDAifQ.xrmtIJ7KqR4S5yc_L_1RNnS8VX7xNHqpgFjjNd8g98Q
+
+
+###
+# @name authentication
+POST {{url}}/auth
+Content-Type: application/json
+
+{
+    "email": "Pedro@test.com",
+    "password": "123"
+}
+
+
+
+
+
+
+
+###
+# @name create_Pessoa
+
+POST {{url}}/pessoa
+Content-Type: application/json
+
+{
+    "name": "Isac",
+    "password": "123"
+}
+
+###
+# @name findOneBy_Pessoa
+
+GET {{url}}/pessoa/6
+
+###
+# @name update_Pessoa
+
+PATCH {{url}}/pessoa/1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": "Pedro Levi"
+}
+
+###
+# @name remove_Pessoa
+DELETE {{url}}/pessoa/1
+Authorization: Bearer {{token}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+###
+# @name create_Recado
+
+POST {{url}}/recado
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "recado": "de isac para isabela",
+    "paraId": 2
+}
+
+###
+# @name findOneBy_Recado
+
+GET {{url}}/recado/1
+
+###
+# @name findAll_Recado
+
+GET {{url}}/recado
+
+###
+# @name find_Recado
+GET {{url}}/recado
+###
+# @name update_Pessoa
+
+PATCH {{url}}/recado/1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "recado": "Pedro mandou Ola para isac"
+}
+
+###
+# @name remove_Recado
+
+DELETE {{url}}/recado/1
+Authorization: Bearer {{token}}
