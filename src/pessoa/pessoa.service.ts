@@ -58,7 +58,7 @@ export class PessoaService {
     updatePessoaDto: UpdatePessoaDto,
     payload: PayloadDto,
   ): Promise<PessoaResponseDto> {
-    const { email, name, password } = updatePessoaDto;
+    const { name, password } = updatePessoaDto;
 
     const pessoaAuth = await this.pessoaRepository.findOneBy({
       id: payload.sub,
@@ -68,8 +68,6 @@ export class PessoaService {
       throw new BadRequestException(
         'You are not allowed to modify this person.',
       );
-
-    if (email) throw new BadRequestException('email cannot be changed');
 
     const pessoaEntity = {
       name,

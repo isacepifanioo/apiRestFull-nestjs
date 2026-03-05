@@ -4,9 +4,10 @@ import { RecadoController } from './recado.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Recado } from './entities/recado.entity';
 import { PessoaModule } from 'src/pessoa/pessoa.module';
+import { Pessoa } from 'src/pessoa/entities/pessoa.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Recado]), PessoaModule],
+  imports: [TypeOrmModule.forFeature([Recado, Pessoa]), PessoaModule],
   controllers: [RecadoController],
   providers: [RecadoService],
 })
